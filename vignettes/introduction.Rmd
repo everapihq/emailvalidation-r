@@ -1,0 +1,36 @@
+---
+title: "introduction to emailvalidation"
+author: Dominik Kukacka
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+`emailvalidation` is the official package for accessing currency conversion data from [emailvalidation.io](https://emailvalidation.io). The API requires a registered API key. The free plan provides 100 free monthly requests. You can register an API key [here](https://app.emailvalidation.io/register). [Premium plans](https://emailvalidation.io/pricing/) provide access to more requests and more data endpoints. The full API documentation can be found [here](https://emailvalidation.io/docs/)
+
+## Setting up authentication
+
+After registering your API key, set your API key locally by calling the helper function `emailvalidation_api_key()` or by manually calling `Sys.setenv(EMAILVALIDATION_API_KEY = <key>)`.
+
+## Making your first API request
+
+Call `get_email_info("john@doe.com")` to retrieve all information about the specified email address.
+
+## Available Functions
+
+* `get_api_status()` - can be used to check whether the API is available. Requests do not count towards your monthly request volume. Information about your API key are provided. Available in `free & paid` plans.
+* `get_email_info()` - provides you with information about any email address. Available in `free & paid` plans.
+
+Please read our [API documentation](https://emailvalidation.io/docs/) for all information.
